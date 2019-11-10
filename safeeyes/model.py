@@ -23,6 +23,7 @@ This module contains the entity classes used by Safe Eyes and its plugins.
 from distutils.version import LooseVersion
 from enum import Enum
 import logging
+import random
 from safeeyes import Utility
 
 
@@ -163,6 +164,7 @@ class BreakQueue(object):
         """
         head = None
         tail = None
+        random.shuffle(break_configs)
         for break_config in break_configs:
             name = _(break_config['name'])
             duration = break_config.get('duration', break_duration)
